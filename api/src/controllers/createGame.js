@@ -1,27 +1,29 @@
 const { Videogame, Genre } = require("../db");
 
 async function createGame({
+  id,
   name,
   released,
   rating,
   platforms,
-  genres,
+  genre,
 }) {
-  if (!name || !genres)
+  if (!name || !genre)
     throw new Error("El nombre y el genero deben estar completos");
 
   let resultado = await Videogame.create({
+    id,
     name,
     released,
     rating,
     platforms,
-    genres,
+    genre,
   });
 
-  for (const genre of genres) {
+  for (const gen of genre) {
     let genres = await Genre.findOne({
       where: {
-        title: genre,
+        name: gen,
       },
     });
 
