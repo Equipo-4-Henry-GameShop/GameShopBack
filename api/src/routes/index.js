@@ -16,8 +16,9 @@ const createBulkDB = async (req, res) => {
     try {
         while (i <= 5) {
             const response=[];
+            const stringUrlApi = `https://api.rawg.io/api/games?page=${i}&key=6df927ecdff443ffa74507df2223a6ad&page_size=40`;
              response = await axios.get(
-                `https://api.rawg.io/api/games?page=${i}&key=6df927ecdff443ffa74507df2223a6ad&page_size=40`); // ? solicita los datos a la api externa
+                stringUrlApi); // ? solicita los datos a la api externa
             //console.log(response.data)
             const allGames = response.data.results.map((game) => ({//? trae los datos unificando el formato
                 id: game.id,
