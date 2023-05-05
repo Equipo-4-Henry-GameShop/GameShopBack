@@ -32,14 +32,14 @@ const createBulkDB = async (req, res) => {
     }
 };
 
-const validate = (req, res, next) => {
-    const { name, genre } = req.body
-    if( !name || !genre ) {
-        res.status(400).json({error: "Faltan datos obligatortios"})
-    } else {
-        next();
-    }
-    }
+// const validate = (req, res, next) => {
+//     const { name, genre } = req.body
+//     if( !name || !genre ) {
+//         res.status(400).json({error: "Faltan datos obligatortios"})
+//     } else {
+//         next();
+//     }
+//     }
 
 
 // Configurar los routers
