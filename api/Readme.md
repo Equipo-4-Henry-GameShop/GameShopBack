@@ -8,7 +8,7 @@ GET --> https://gameshopback-pf-ek5y.onrender.com/games/createBulkDB
 
     GAMES
 Extrae todos los video juegos de la BD postgres
-GET -->  https://gameshopback-pf.onrender.com/games	
+GET -->  https://gameshopback-pf-ek5y.onrender.com/games
 
 
 Extrae el video juego por nombre de la BD postgres
@@ -80,6 +80,4 @@ Se le deve pasar por body la siguiente estructura
 
 Obtener Generos
 
-GET --> https://gameshopback-pf.onrender.com/genres
-
-
+GET --> https://gameshopback-pf-ek5y.onrender.com/genres
