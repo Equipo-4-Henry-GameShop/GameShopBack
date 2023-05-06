@@ -44,10 +44,10 @@ const createBulkDB = async (req, res) => {
       image: game.background_image,
       genre: game.genres.map((genre) => genre.name),
       requeriments_en: game.platforms
-      .filter((requeriment) => requeriment.requirements_en != null)
+      .filter((requeriment) => requeriment.requirements_en !== null)
       .map((requeriment) => requeriment.requirements_en),
       requeriments_ru: game.platforms
-      .filter((requeriment) => requeriment.requirements_en != null)
+      .filter((requeriment) => requeriment.requirements_en !== null)
       .map((requeriment) => requeriment.requirements_ru),
     }));
     const savedGames = await Videogame.bulkCreate(allGames);
