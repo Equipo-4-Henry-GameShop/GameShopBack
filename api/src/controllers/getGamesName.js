@@ -4,7 +4,12 @@ const { Op } = require("sequelize");
 
 async function searchDB(name) {
   if (!name) {
-    let allGames = await Videogame.findAll();
+    let allGames = await Videogame.findAll({      
+      where: { 
+      attributes: {
+        exclude: ["createdAt", "updatedAt"]
+    }}
+    });
     if (allGames.length === 0) {
       return "message: No se encontraron videojuegos en la Base de Datos";
     }
