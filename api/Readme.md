@@ -83,3 +83,4 @@ Obtener Generos
 GET --> https://gameshopback-pf-ek5y.onrender.com/genres
 
 
+
