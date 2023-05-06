@@ -3,27 +3,27 @@
 	BulkDB
 
 Alojar todos los vidojuegos a la BD Postgres
-GET --> https://gameshopback-pf.onrender.com/games/createBulkDB
+GET --> https://gameshopback-pf-ek5y.onrender.com/games/createBulkDB
 
 
 	GAMES
 Extrae todos los video juegos de la BD postgres
-GET -->  https://gameshopback-pf.onrender.com/games	
+GET -->  https://gameshopback-pf-ek5y.onrender.com/games	
 
 
 Extrae el video juego por nombre de la BD postgres
-GET --> https://gameshopback-pf.onrender.com/games?name=Tomb Raider (2013)
+GET --> https://gameshopback-pf-ek5y.onrender.com/games?name=Tomb Raider (2013)
 
 
 Extrae el video juego por ID de la BD postgres
-GET --> https://gameshopback-pf.onrender.com/games/19710
+GET --> https://gameshopback-pf-ek5y.onrender.com/games/19710
 
 Elimina un video juego pasandole el ID
-DELETE --> https://gameshopback-pf.onrender.com/games/19710
+DELETE --> https://gameshopback-pf-ek5y.onrender.com/games/19710
 
 
 Actualiza un video juego
-PUT --> https://gameshopback-pf.onrender.com/games/update/19710
+PUT --> https://gameshopback-pf-ek5y.onrender.com/update/19710
 Se le deve pasar por body la siguiente estructura
 {
         "id": "19710",
@@ -48,7 +48,7 @@ Se le deve pasar por body la siguiente estructura
 
 
 Agregar un nuevo video juego
-POST --> https://gameshopback-pf.onrender.com/games
+POST --> https://gameshopback-pf-ek5y.onrender.com/games
 Se le deve pasar por body la siguiente estructura
 
 {
@@ -80,6 +80,6 @@ Se le deve pasar por body la siguiente estructura
 
 Obtener Generos
 
-GET --> https://gameshopback-pf.onrender.com/genres
+GET --> https://gameshopback-pf-ek5y.onrender.com/genres
 
 
