@@ -11,7 +11,11 @@ async function searchDB(name) {
     return allGames;
   } else {
     let gameName = await Videogame.findAll({
+      
       where: { name: { [Op.iLike]: `%${name}%` } },
+      attributes: {
+        exclude: ["createdAt", "updatedAt"]
+    }
     });
     if (gameName.length === 0) {
       return `No se encontraron videojuegos con el nombre: ${name}`;
