@@ -3,7 +3,7 @@ RUTAS
     BulkDB
 
 Alojar todos los vidojuegos a la BD Postgres
-GET --> https://gameshopback-pf-ek5y.onrender.com/games/createBulkDB
+POST --> https://gameshopback-pf-ek5y.onrender.com/games/createBulkDB
 
 
     GAMES
@@ -17,6 +17,25 @@ GET --> https://gameshopback-pf-ek5y.onrender.com/games?name=Tomb Raider (2013)
 
 Extrae el video juego por ID de la BD postgres
 GET --> https://gameshopback-pf-ek5y.onrender.com/games/19710
+
+Extrae todos los video juegos de la BD postgres, los filtra y los oredna por Nombre en forma Ascendente (A - Z)
+GET --> https://gameshopback-pf-ek5y.onrender.com/games/order/asc
+
+Extrae todos los video juegos de la BD postgres, los filtra y los oredna por Nombre en forma Descendente (Z - A)
+GET --> https://gameshopback-pf-ek5y.onrender.com/games/order/desc
+
+Extrae todos los video juegos de la BD postgres, los filtra y los oredna por Rating de menor a mayor
+GET --> https://gameshopback-pf-ek5y.onrender.com/games/order/ratmin
+
+Extrae todos los video juegos de la BD postgres, los filtra y los oredna por Rating de mayor a menor
+GET --> https://gameshopback-pf-ek5y.onrender.com/games/order/ratmax
+
+Extrae todos los video juegos de la BD postgres, los filtra y los oredna por Precio de menor a mayor
+GET --> https://gameshopback-pf-ek5y.onrender.com/games/order/pricemin
+
+Extrae todos los video juegos de la BD postgres, los filtra y los oredna por Precio mayor a menor
+GET --> https://gameshopback-pf-ek5y.onrender.com/games/order/pricemax
+
 
 Elimina un video juego pasandole el ID
 DELETE --> https://gameshopback-pf-ek5y.onrender.com/games/19710

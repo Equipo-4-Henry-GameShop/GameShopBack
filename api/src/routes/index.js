@@ -9,10 +9,10 @@ const getGamesIdRouter = require("./getGamesId");
 const getGenresRouter = require("./getGenres");
 const deleteGameRouter = require("./deleteGame");
 const putGameRouter = require("./putGame");
-
-
-// const createBulkDB = require("../controllers/dataBulkLoad")
+const sortedGames = require("./sortedGames")
 const { Videogame, Genre } = require("../db");
+
+
 
 const createBulkDB = async (req, res) => {
   try {
@@ -70,6 +70,7 @@ const createBulkDB = async (req, res) => {
 //     }
 //     }
 
+
 // Configurar los routers
 router.use("/games", getGamesNameRouter);
 router.use("/games/update", putGameRouter);
@@ -78,5 +79,7 @@ router.use("/games/createBulkDB", createBulkDB);
 router.use("/games", getGamesIdRouter);
 router.use("/games", deleteGameRouter);
 router.use("/genres", getGenresRouter);
+router.use("/games/order", sortedGames);
+
 
 module.exports = router;
