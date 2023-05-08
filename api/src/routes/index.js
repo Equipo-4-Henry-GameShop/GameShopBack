@@ -9,7 +9,7 @@ const getGamesIdRouter = require("./getGamesId");
 const getGenresRouter = require("./getGenres");
 const deleteGameRouter = require("./deleteGame");
 const putGameRouter = require("./putGame");
-const orderGamesAscDes = require("./orderGamesAscDes")
+
 
 // const createBulkDB = require("../controllers/dataBulkLoad")
 const { Videogame, Genre } = require("../db");
@@ -76,7 +76,6 @@ router.use("/games/update", putGameRouter);
 router.use("/games", postGamesRouter);
 router.use("/games/createBulkDB", createBulkDB);
 router.use("/games", getGamesIdRouter);
-router.use("/games", orderGamesAscDes);
 router.use("/games", deleteGameRouter);
 router.use("/genres", getGenresRouter);
 
