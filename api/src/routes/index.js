@@ -9,6 +9,8 @@ const getGamesIdRouter = require("./getGamesId");
 const getGenresRouter = require("./getGenres");
 const deleteGameRouter = require("./deleteGame");
 const putGameRouter = require("./putGame");
+const orderGamesAscDes = require("./orderGamesAscDes")
+
 // const createBulkDB = require("../controllers/dataBulkLoad")
 const { Videogame, Genre } = require("../db");
 
@@ -41,14 +43,16 @@ const createBulkDB = async (req, res) => {
       rating: game.rating,
       platforms: game.platforms.map((platform) => platform.platform.name),
       released: game.released,
-      image: game.background_image,
+      image: game.background_image,      
       genre: game.genres.map((genre) => genre.name),
+      screenshots: game.short_screenshots.map((screen) => screen.image),
       requeriments_en: game.platforms
       .filter((requeriment) => requeriment.requirements_en !== null)
       .map((requeriment) => requeriment.requirements_en),
       requeriments_ru: game.platforms
       .filter((requeriment) => requeriment.requirements_en !== null)
       .map((requeriment) => requeriment.requirements_ru),
+      price: (Math.random() * (100 - 45 )).toFixed(2),
     }));
     const savedGames = await Videogame.bulkCreate(allGames);
     return res.status(200).json(savedGames);
@@ -72,7 +76,8 @@ router.use("/games/update", putGameRouter);
 router.use("/games", postGamesRouter);
 router.use("/games/createBulkDB", createBulkDB);
 router.use("/games", getGamesIdRouter);
-router.use("/genres", getGenresRouter);
+router.use("/games", orderGamesAscDes);
 router.use("/games", deleteGameRouter);
+router.use("/genres", getGenresRouter);
 
 module.exports = router;

@@ -33,8 +33,14 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING,
     },
+    price: {
+      type: DataTypes.FLOAT,
+    },
 
     genre: {
+      type: DataTypes.ARRAY(DataTypes.STRING)
+    },
+    screenshots: {
       type: DataTypes.ARRAY(DataTypes.STRING)
     },
 
