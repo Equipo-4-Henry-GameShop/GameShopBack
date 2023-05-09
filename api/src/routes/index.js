@@ -80,7 +80,7 @@ router.use("/games", postGamesRouter);
 router.use("/games/createBulkDB", createBulkDB);
 router.use("/games", getGamesIdRouter);
 router.use("/games", deleteGameRouter);
-
+router.use("/games/platforms", filteredPlatforms);
 router.use("/games/order", sortedGames);
 router.use("/genres", getGenresRouter);
 router.use("/user", createUser);
