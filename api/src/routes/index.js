@@ -10,6 +10,8 @@ const getGenresRouter = require("./getGenres");
 const deleteGameRouter = require("./deleteGame");
 const putGameRouter = require("./putGame");
 const sortedGames = require("./sortedGames")
+const filteredPlatforms = require("./filteredPlatforms")
+const createUser = require("./createUser.js")
 const { Videogame, Genre } = require("../db");
 
 
@@ -78,8 +80,11 @@ router.use("/games", postGamesRouter);
 router.use("/games/createBulkDB", createBulkDB);
 router.use("/games", getGamesIdRouter);
 router.use("/games", deleteGameRouter);
-router.use("/genres", getGenresRouter);
+
 router.use("/games/order", sortedGames);
+router.use("/genres", getGenresRouter);
+router.use("/user", createUser);
 
 
 module.exports = router;
+
