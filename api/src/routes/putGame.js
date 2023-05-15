@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const  updateGame = require('../controllers/updateGame')
+const  { updateGame } = require('../controllers/updateGame')
 const express = require("express");
 
 const router = Router();

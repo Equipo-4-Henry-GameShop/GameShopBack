@@ -19,7 +19,7 @@ async function createGame({
     platforms,
     genre,
   });
-
+  
   for (const gen of genre) {
     let genres = await Genre.findOne({
       where: {
@@ -31,4 +31,4 @@ async function createGame({
   }
 }
 
-module.exports = createGame;
+module.exports = { createGame };

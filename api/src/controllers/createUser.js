@@ -4,20 +4,22 @@ async function createUser({
     id,
     name,
     userAdmin,
-    correo,
+    email,
+    password,
     image,
-    nrocontacto,
+    phone,
 }) {
-    if(!name || !userAdmin || !correo)
+    if(!name || !userAdmin || !email || !password)
     throw new Error("Datos deben estar completos");
 
     let resultado = await Users.create({
         id,
         name,
         userAdmin,
-        correo,
+        email,
+        password,
         image,
-        nrocontacto,
+        phone,
     })
 }
 

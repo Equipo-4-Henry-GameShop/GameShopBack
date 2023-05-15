@@ -16,4 +16,4 @@ async function updateGame(game) {
  return resultado
 }
 
-module.exports = updateGame;
+module.exports = {updateGame};

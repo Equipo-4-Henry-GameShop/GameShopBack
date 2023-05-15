@@ -21,15 +21,20 @@ module.exports = (sequelize) => {
         default: true,
       },
 
-      correo: {
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+     
+      password: {
         type: DataTypes.STRING,
         allowNull: false,
       },
 
-      imagen: {
+      image: {
         type: DataTypes.STRING,
       },
-      nrocontacto: {
+      phone: {
         type: DataTypes.STRING,
       },
     },

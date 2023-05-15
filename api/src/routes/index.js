@@ -12,6 +12,10 @@ const putGameRouter = require("./putGame");
 const sortedGames = require("./sortedGames")
 const filteredPlatforms = require("./filteredPlatforms")
 const createUser = require("./createUser.js")
+const addToCart = require("./createCart")
+const getuserid = require("./getUserId")
+const getuser = require("./getUserName")
+const updateUser = require("./updateUser");
 const { Videogame, Genre } = require("../db");
 
 
@@ -84,6 +88,10 @@ router.use("/games/platforms", filteredPlatforms);
 router.use("/games/order", sortedGames);
 router.use("/genres", getGenresRouter);
 router.use("/user", createUser);
+router.use("/user", getuserid);
+router.use("/user", getuser);
+router.use("/user/update", updateUser);
+router.use("/cart", addToCart);
 
 
 module.exports = router;
