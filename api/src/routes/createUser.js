@@ -8,15 +8,19 @@ router.use(express.json());
 router.post("/", async (req, res) => {
  
     try {
-      let { id, name, userAdmin, email, password, image, phone } = req.body;
+      let { id, user, fullname, password, userAdmin, email, date, image, phone, tac, newsLetter } = req.body;
     let newUser = await createUser({
       id,
-      name,
+      user,
+      fullname,
+      password,
       userAdmin,
       email,
-      password,
+      date,
       image,
-      phone,     
+      phone,
+      tac,
+      newsLetter,           
     });
 
 res.status(201).json({message: 'Usuario creado exitosamente', data: newUser});

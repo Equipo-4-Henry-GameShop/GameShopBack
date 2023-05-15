@@ -5,13 +5,15 @@ const { Op } = require ('sequelize');
 
    async function filteredPlatforms (platform){ // Obtener el parámetro "platform" de la consulta
     let filterByPlatform = await Videogame.findAll({
-                where: { // Agregar la condición where para filtrar por plataforma
+                where: { 
             platforms: {
                 [Op.contains]: [platform]
-            } 
+            }, 
           },
     })
       return filterByPlatform;
 }
 
 module.exports = { filteredPlatforms }
+
+// Agregar la condición where para filtrar por plataforma

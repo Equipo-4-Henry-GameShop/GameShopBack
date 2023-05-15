@@ -45,7 +45,7 @@
   // };
 
 
-  
+
   const { Users, Videogame, Carts, CartGame } = require("../db");
   
   const addToCart = async (req, res) => {

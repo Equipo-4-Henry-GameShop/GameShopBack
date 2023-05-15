@@ -6,10 +6,14 @@ async function createGame({
   released,
   rating,
   platforms,
+  image,
+  price,
   genre,
+  screenShots,
+  requeriments_en,
 }) {
   if (!name || !genre || !platforms)
-    throw new Error("El nombre y el genero deben estar completos");
+    throw new Error("El nombre, el genero y la plataforma deben estar completos");
 
   let resultado = await Videogame.create({
     id,
@@ -17,7 +21,11 @@ async function createGame({
     released,
     rating,
     platforms,
+    image,
+    price,
     genre,
+    screenShots,
+    requeriments_en,
   });
   
   for (const gen of genre) {

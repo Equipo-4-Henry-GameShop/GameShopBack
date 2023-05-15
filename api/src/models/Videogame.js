@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
     },
  
     released: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATE,
     },
 
     rating:{
@@ -33,6 +33,7 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING,
     },
+
     price: {
       type: DataTypes.FLOAT,
     },
@@ -40,7 +41,7 @@ module.exports = (sequelize) => {
     genre: {
       type: DataTypes.ARRAY(DataTypes.STRING)
     },
-    screenshots: {
+    screenShots: {
       type: DataTypes.ARRAY(DataTypes.STRING)
     },
 

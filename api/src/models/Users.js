@@ -11,11 +11,21 @@ module.exports = (sequelize) => {
         autoIncrement: false // desabilita la auto-incrementacion
       },
       
-      name: {
+      user: {
         type: DataTypes.STRING,
         allowNull: false,
       },
 
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+
+      fullname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      
       userAdmin: {
         type: DataTypes.BOOLEAN,
         default: true,
@@ -25,17 +35,26 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-     
-      password: {
-        type: DataTypes.STRING,
+
+      date: {
+        type: DataTypes.DATE,
         allowNull: false,
-      },
+      },     
 
       image: {
         type: DataTypes.STRING,
       },
+
       phone: {
         type: DataTypes.STRING,
+      },
+
+      tac: {
+        type: DataTypes.BOOLEAN,
+      },
+
+      newsLetter: {
+        type: DataTypes.BOOLEAN,
       },
     },
     { timestamps: false }

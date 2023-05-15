@@ -51,7 +51,7 @@ const createBulkDB = async (req, res) => {
       released: game.released,
       image: game.background_image,      
       genre: game.genres.map((genre) => genre.name),
-      screenshots: game.short_screenshots.map((screen) => screen.image),
+      screenShots: game.short_screenshots.map((screen) => screen.image),
       requeriments_en: game.platforms
       .filter((requeriment) => requeriment.requirements_en !== null)
       .map((requeriment) => requeriment.requirements_en),

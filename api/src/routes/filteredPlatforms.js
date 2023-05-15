@@ -14,7 +14,7 @@ const express = require("express");
     try {
       let resultado = await filteredPlatforms(platform);
       if(!resultado.length) {
-      res.status(200).json( "no se encontraron resultados")
+      res.status(200).json({ message: "no se encontraron resultados"})
       
     } else {
         res.status(200).json(resultado);

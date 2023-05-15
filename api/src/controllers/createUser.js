@@ -2,24 +2,32 @@ const { Users } = require ("../db")
 
 async function createUser({
     id,
-    name,
+    user,
+    fullname,
+    password,
     userAdmin,
     email,
-    password,
+    date,
     image,
     phone,
+    tac,
+    newsLetter,
 }) {
-    if(!name || !userAdmin || !email || !password)
+    if(!user || !userAdmin || !email || !password)
     throw new Error("Datos deben estar completos");
 
     let resultado = await Users.create({
         id,
-        name,
+        user,
+        fullname,
+        password,
         userAdmin,
         email,
-        password,
+        date,
         image,
         phone,
+        tac,
+        newsLetter,
     })
 }
 
