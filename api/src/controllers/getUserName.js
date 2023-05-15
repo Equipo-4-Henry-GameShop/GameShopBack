@@ -1,9 +1,9 @@
 const { Users } = require("../db");
 const { Op } = require("sequelize");
 
-async function searchUser(name) {
+async function searchUser(user) {
 
-  if (!name) { // si no se envia nombre, trae todos los Usuarios
+  if (!user) { // si no se envia nombre, trae todos los Usuarios
     let allUsers = await Users.findAll();
     if (allUsers.length === 0) {
       return "message: No se encontraron usuarios en la Base de Datos";
@@ -13,13 +13,13 @@ async function searchUser(name) {
   } else {
     let userName = await Users.findAll({ // si se envia nombre, buscar en la DB por nombre
       
-      where: { name: { [Op.iLike]: `%${name}%` } },
+      where: { user: { [Op.iLike]: `%${user}%` } },
       attributes: {
         exclude: ["createdAt", "updatedAt"]
     }
     });
     if (userName.length === 0) {
-      return `No se encontraron usuarios con el nombre: ${name}`;
+      return `No se encontraron usuarios con el nombre: ${user}`;
     }
     return userName;
   }
