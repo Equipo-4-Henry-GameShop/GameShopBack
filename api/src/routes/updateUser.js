@@ -2,15 +2,15 @@ const { Users } = require("../db");
 
 const updateUser = async (req, res) => {
 
-  const { id, name, userAdmin, email, password, image, phone } = req.body;
+  const { id, user, fullname, password, userAdmin, email, date, image, phone, tac, newsLetter } = req.body;
 
   try {
-    const user = await Users.findByPk(id);
-    if (!user) {
+    const usuario = await Users.findByPk(id);
+    if (!usuario) {
       return res.status(404).json({ message: "Usuario no encontrado" });
     }
 
-    await user.update({ name, userAdmin, email, password, image, phone });
+    await usuario.update({ id, user, fullname, password, userAdmin, email, date, image, phone, tac, newsLetter });
 
     return res.json({ message: "Usuario actualizado correctamente" });
   } catch (error) {
