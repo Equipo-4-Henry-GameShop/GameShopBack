@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const express = require("express");
-const createGame = require("../controllers/createGame");
+const {createGame} = require("../controllers/createGame");
 
 const router = Router();
 router.use(express.json());
