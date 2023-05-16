@@ -92,7 +92,7 @@
       });
     } else {
       // Si no está en el carrito, lo agregamos con la cantidad y el precio total
-      await CartGame.create({
+      await Carts.create({
         cartId: cart.id,
         videogameId: videogame.id,
         quantity,

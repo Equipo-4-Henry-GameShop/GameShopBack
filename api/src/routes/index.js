@@ -16,6 +16,7 @@ const addToCart = require("./createCart")
 const getuserid = require("./getUserId")
 const getuser = require("./getUserName")
 const updateUser = require("./updateUser");
+const deleteUser = require("./deleteUser")
 const { Videogame, Genre } = require("../db");
 
 
@@ -90,6 +91,7 @@ router.use("/genres", getGenresRouter);
 router.use("/user", createUser);
 router.use("/user", getuserid);
 router.use("/user", getuser);
+router.use("/user", deleteUser);
 router.use("/user/update", updateUser);
 router.use("/cart", addToCart);
 
