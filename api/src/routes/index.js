@@ -25,7 +25,7 @@ const createBulkDB = async (req, res) => {
   try {
     // const response = await axios.get(
     //     "https://api.rawg.io/api/games?page_size=10&key=6df927ecdff443ffa74507df2223a6ad&page_size=40"); // ? solicita los datos a la api externa
-    //console.log(response.data)
+  
     let games1 = await axios.get("https://api.rawg.io/api/games?key=6df927ecdff443ffa74507df2223a6ad&page=1");
     let games2 = await axios.get("https://api.rawg.io/api/games?key=6df927ecdff443ffa74507df2223a6ad&page=2");
     let games3 = await axios.get("https://api.rawg.io/api/games?key=6df927ecdff443ffa74507df2223a6ad&page=3");
