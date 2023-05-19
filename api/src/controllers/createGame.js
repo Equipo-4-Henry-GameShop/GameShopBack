@@ -3,9 +3,9 @@ const { Videogame, Genre } = require("../db");
 async function createGame({
   id,
   name,
-  released,
-  rating,
+  releaseDate,  
   platforms,
+  description,
   image,
   price,
   genre,
@@ -18,9 +18,9 @@ async function createGame({
   let resultado = await Videogame.create({
     id,
     name,
-    released,
-    rating,
+    releaseDate, 
     platforms,
+    description,
     image,
     price,
     genre,
