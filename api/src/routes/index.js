@@ -18,6 +18,7 @@ const getuser = require("./getUserName")
 const updateUser = require("./updateUser");
 const deleteUser = require("./deleteUser")
 const { Videogame, Genre } = require("../db");
+const getFirestoreData = require("./firestore")
 
 
 
@@ -49,7 +50,7 @@ const createBulkDB = async (req, res) => {
       name: game.name,
       rating: game.rating,
       platforms: game.platforms.map((platform) => platform.platform.name),
-      released: game.released,
+      releasedDate: game.released,
       image: game.background_image,      
       genre: game.genres.map((genre) => genre.name),
       screenShots: game.short_screenshots.map((screen) => screen.image),
@@ -94,6 +95,8 @@ router.use("/user", getuser);
 router.use("/user", deleteUser);
 router.use("/user/update", updateUser);
 router.use("/cart", addToCart);
+router.use("/firestore", getFirestoreData);
+
 
 
 module.exports = router;
