@@ -18,7 +18,7 @@ const getuser = require("./getUserName")
 const updateUser = require("./updateUser");
 const deleteUser = require("./deleteUser")
 const { Videogame, Genre } = require("../db");
-const getFirestoreData = require("./firestore")
+
 
 
 
@@ -95,7 +95,7 @@ router.use("/user", getuser);
 router.use("/user", deleteUser);
 router.use("/user/update", updateUser);
 router.use("/cart", addToCart);
-router.use("/firestore", getFirestoreData);
+
 
 
 
