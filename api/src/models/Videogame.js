@@ -16,18 +16,23 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
- 
-    released: {
-      type: DataTypes.STRING,
-    },
 
+    
     rating:{
       type: DataTypes.FLOAT
     },
-
+    
     platforms:{
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
+    },
+    
+    releasedDate: {
+    type: DataTypes.STRING,
+    },
+
+    description:{
+      type: DataTypes.STRING,
     },
 
     image: {
@@ -42,6 +47,9 @@ module.exports = (sequelize) => {
       type: DataTypes.ARRAY(DataTypes.STRING)
     },
     screenShots: {
+      type: DataTypes.ARRAY(DataTypes.STRING)
+    },
+    tags: {
       type: DataTypes.ARRAY(DataTypes.STRING)
     },
 
