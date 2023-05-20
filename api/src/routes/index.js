@@ -53,6 +53,7 @@ const createBulkDB = async (req, res) => {
       releaseDate: game.released,
       image: game.background_image,      
       genre: game.genres.map((genre) => genre.name),
+      tags: game.tags.map((tag) => tag.name),
       screenShots: game.short_screenshots.map((screen) => screen.image),
       requeriments_en: game.platforms
       .filter((requeriment) => requeriment.requirements_en !== null)
@@ -62,6 +63,7 @@ const createBulkDB = async (req, res) => {
       .map((requeriment) => requeriment.requirements_ru),
       price: (Math.random() * (100 - 45 )).toFixed(2),
     }));
+
     const savedGames = await Videogame.bulkCreate(allGames);
     return res.status(200).json(savedGames);
 } catch (error) {

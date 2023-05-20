@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const sequelize = new Sequelize(
 
-
+  // "postgres://postgres:mia081013@localhost:5432/gameshop",
 
   "postgres://dbgameshop:3OvsB5VnfrwB9jPRfc2MtJrXnK9OlKJm@dpg-chb3h0ak728tp9bf0e00-a.oregon-postgres.render.com/gameshop_v2eq?ssl=true",
   {
