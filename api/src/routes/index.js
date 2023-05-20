@@ -50,7 +50,7 @@ const createBulkDB = async (req, res) => {
       name: game.name,
       rating: game.rating,
       platforms: game.platforms.map((platform) => platform.platform.name),
-      releaseDate: game.released.split('-').reverse().join('-'),
+      releaseDate: game.released,
       image: game.background_image,      
       genre: game.genres.map((genre) => genre.name),
       tags: game.tags.map((tag) => tag.name),
