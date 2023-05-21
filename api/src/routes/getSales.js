@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const express = ("express");
+const express = require("express");
 const { Users, Sales, Videogame } = require('../db');
 const { route } = require("./getGamesName");
 
