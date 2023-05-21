@@ -2,8 +2,7 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Users",
-    {
+    "Users", {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -56,7 +55,23 @@ module.exports = (sequelize) => {
       newsLetter: {
         type: DataTypes.BOOLEAN,
       },
-    },
-    { timestamps: false }
-  );
-};
+    }, {
+        hooks: {
+          beforeCreate: (game) => {
+            if (game.releaseDate) {
+              const parts = game.releaseDate.split('-');
+              const formattedDate = `${parts[2]}/${parts[1]}/${parts[0].slice(2)}`;
+              game.releaseDate = formattedDate;
+            }
+          },
+          beforeUpdate: (game) => {
+            if (game.releaseDate) {
+              const parts = game.releaseDate.split('-');
+              const formattedDate = `${parts[2]}/${parts[1]}/${parts[0].slice(2)}`;
+              game.releaseDate = formattedDate;
+            }
+          },
+        },
+        timestamp: false,
+      });
+    };
