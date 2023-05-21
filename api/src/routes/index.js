@@ -17,6 +17,7 @@ const getuserid = require("./getUserId")
 const getuser = require("./getUserName")
 const updateUser = require("./updateUser");
 const deleteUser = require("./deleteUser")
+const loginUser = require('./auth')
 const { Videogame, Genre } = require("../db");
 
 
@@ -95,6 +96,7 @@ router.use("/user", createUser);
 router.use("/user", getuserid);
 router.use("/user", getuser);
 router.use("/user", deleteUser);
+router.use("/user/login", loginUser);
 router.use("/user/update", updateUser);
 router.use("/cart", addToCart);
 
