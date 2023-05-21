@@ -18,6 +18,8 @@ const getuser = require("./getUserName")
 const updateUser = require("./updateUser");
 const deleteUser = require("./deleteUser")
 const loginUser = require('./auth')
+const payment = require("./payment")
+const getSales = require("./getSales")
 const { Videogame, Genre } = require("../db");
 
 
@@ -98,6 +100,8 @@ router.use("/user", getuser);
 router.use("/user", deleteUser);
 router.use("/user/login", loginUser);
 router.use("/user/update", updateUser);
+router.use("/", payment);
+router.use("/sales", getSales);
 router.use("/cart", addToCart);
 
 

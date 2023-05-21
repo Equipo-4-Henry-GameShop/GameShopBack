@@ -40,7 +40,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Videogame, Genre, Users, Carts } = sequelize.models;
+const { Videogame, Genre, Users, Carts, Sales } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -50,8 +50,10 @@ Videogame.belongsToMany(Carts, { through: 'CartGame' });
 Carts.belongsToMany(Videogame, { through: 'CartGame' });
 Users.hasOne(Carts);
 Carts.belongsTo(Users);
-// Users.belongsTo(Venta, { through: "userventa" });
-// Venta.belongsTo(Users, { through: "userventa" });
+Users.hasMany(Sales, { as: 'sales', foreignKey: 'userId' });
+Sales.belongsTo(Users, { as: 'user' });
+Videogame.belongsToMany(Sales, { through: 'VideogameSales' });
+Sales.belongsToMany(Videogame, { through: 'VideogameSales' });
 Users.belongsToMany(Videogame, { through: "UserVideogame" });
 Videogame.belongsToMany(Users, { through: "UserVideogame" });
 
