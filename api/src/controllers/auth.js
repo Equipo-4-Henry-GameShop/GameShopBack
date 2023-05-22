@@ -14,9 +14,12 @@ async function login ({user, password}) {
       if (!userDb) {
         return res.status(401).json({ message: 'Credenciales inválidas' });
       }
+
+        // Obtener la contraseña almacenada en la base de datos
+        const storedPassword = userDb.password;
     
       // Compara la contraseña proporcionada con la contraseña almacenada en la base de datos
-      const isPasswordValid = await bcrypt.compare(password, Users.password);
+      const isPasswordValid = await bcrypt.compare(password, storedPassword);
     
       // Si la contraseña no coincide, devuelve un error de autenticación
       if (!isPasswordValid) {
@@ -24,18 +27,15 @@ async function login ({user, password}) {
       }
     
       // Genera un token JWT para el usuario
-      const token = jwt.sign({ userId: Users.id }, { expiresIn: '1h' });
+      const token = jwt.sign({ userId: Users.id }, secretKey, { expiresIn: '1h' });
     
       // Devuelve el token al frontend
-      return res.json({ token });
+      return token;
     } catch (error) {
       console.error('Error de autenticación:', error);
-      return res.status(500).json({ message: 'Error de autenticación' });
+      return ({ message: 'Error de autenticación' });
     }
 
 }
-
-
-
 
 module.exports = { login };
