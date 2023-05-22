@@ -4,7 +4,7 @@ const { addToSales } = require("../controllers/SalesController");
 const { Router } = require("express");
 const express = require("express");
 const Stripe = require("stripe");
-const stripe = new Stripe("")
+const stripe = new Stripe("sk_test_51N7eXtIEe9GBUqtLmhCnbI8paifQ5nogExU3BkuN5AyMzAoGgDHqKcdAHkxPuVQHi6koSWM6stHCWpnmLPh8Wqhe00vEADGmgi")
 
 const router = Router();
 router.use(express.json());
