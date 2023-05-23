@@ -5,7 +5,7 @@ const express = require("express");
 const router = Router();
 router.use(express.json());
 
-router.get("/:id", async (req, res) => {
+router.get("/:userId", async (req, res) => {
   const { userId } = req.params;
 
   try {
@@ -15,6 +15,7 @@ router.get("/:id", async (req, res) => {
     } else {
         res.status(201).json(resultBD);
     }
+    console.log(resultBD);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
