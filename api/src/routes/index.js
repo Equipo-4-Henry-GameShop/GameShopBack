@@ -20,6 +20,7 @@ const deleteUser = require("./deleteUser")
 const loginUser = require('./auth')
 const payment = require("./payment")
 const getSales = require("./getSales")
+const getSalesId = require("./getSales")
 const { Videogame, Genre } = require("../db");
 
 
@@ -102,6 +103,7 @@ router.use("/user/login", loginUser);
 router.use("/user/update", updateUser);
 router.use("/", payment);
 router.use("/sales", getSales);
+router.use("/sales", getSalesId);
 router.use("/cart", addToCart);
 
 
