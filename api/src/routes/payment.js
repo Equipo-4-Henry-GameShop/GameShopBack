@@ -64,8 +64,8 @@ router.post("/createSale", async (req, res) => {
     const newItems = JSON.parse(items);
     try {
         const response = await addToSales(paymentId, amount, newItems, userId);
-        
         console.log("Venta almacenada")
+        res.json({ message: "ok", })
 
     } catch (error) {
         const refund = await stripe.refunds.create({
