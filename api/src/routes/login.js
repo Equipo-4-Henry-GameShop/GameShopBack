@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
       let dataUser = await login(user, password)
 
     // Enviar el los datos al frontend
-    res.status(200).json({ dataUser });
+    res.status(200).json( dataUser );
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error interno del servidor' });
