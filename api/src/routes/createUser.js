@@ -1,3 +1,9 @@
+const { Router } = require("express");
+const express = require("express");
+const { createUser } = require("../controllers/createUser");
+
+
+const router = Router();
 router.use(express.json());
 
 router.post("/", async (req, res) => {
