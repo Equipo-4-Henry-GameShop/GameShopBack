@@ -11,8 +11,8 @@ const secretKey = 'tu_clave_secreta'; // Reemplaza esto con tu clave secreta rea
 // Ruta para iniciar sesión
 router.post('/', async (req, res) => {
     
+  let { user, password } = req.body;
     try {
-      let { user, password } = req.body;
 
       let tokenLogin = await login( {user, password })
 
