@@ -13,6 +13,7 @@ module.exports = (sequelize) => {
       user: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true, // hace que el atributo "user" sea único
       },
 
       password: {
@@ -33,6 +34,7 @@ module.exports = (sequelize) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
 
       date: {
@@ -46,6 +48,7 @@ module.exports = (sequelize) => {
 
       phone: {
         type: DataTypes.STRING,
+        unique: true,
       },
 
       tac: {

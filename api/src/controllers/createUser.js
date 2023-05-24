@@ -15,11 +15,11 @@ async function createUser({
     newsLetter,
 }) {
     if(!user || !userAdmin || !email || !password)
-    throw new Error("Datos deben estar completos");
+    throw new Error("The data must be complete");
 
     // Genera un hash de la contraseña utilizando bcrypt
     const hashedPassword = await bcrypt.hash(password, 10);
-
+try {
     let resultado = await Users.create({
         id,
       user,
@@ -33,6 +33,11 @@ async function createUser({
       tac,
       newsLetter,
     })
+} catch (error) {
+    //console.log(error.parent.detail)
+    throw new Error(error.parent.detail);
+}
+  
 }
 
 module.exports = { createUser }
