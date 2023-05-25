@@ -9,7 +9,8 @@ async function deleteGame(id) {
     },
   });
 
-  await resultado.destroy();
+  resultado.deleted = !resultado.deleted;
+  await resultado.save(); 
 }
 
 module.exports = { deleteGame };

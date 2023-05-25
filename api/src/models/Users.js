@@ -58,5 +58,6 @@ module.exports = (sequelize) => {
       newsLetter: {
         type: DataTypes.BOOLEAN,
       },
+      
     });
   };

@@ -19,7 +19,20 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     releaseDate: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATEONLY,
+      get() {
+        // Obtener la fecha en formato 'dd/mm/aaaa'
+        const date = this.getDataValue('releaseDate');
+        if (date) {
+          const formattedDate = new Date(date).toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+          });
+          return formattedDate;
+        }
+        return null;
+      },
     },
     description: {
       type: DataTypes.TEXT,
@@ -45,6 +58,12 @@ module.exports = (sequelize) => {
     requeriments_ru: {
       type: DataTypes.JSON(DataTypes.STRING),
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    }
+
   },
   );
 };
