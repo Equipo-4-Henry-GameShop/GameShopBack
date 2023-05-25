@@ -25,7 +25,7 @@ const getSalesId = require("./getSales")
 const { Videogame, Genre } = require("../db");
 
 const registroRouter = require('./mailregistro');
-
+const carritoRouter = require('./mailcarrito');
 
 
 
@@ -111,6 +111,7 @@ router.use("/sales", getSalesId);
 router.use("/cart", addToCart);
 
 router.use(registroRouter);
+router.use(carritoRouter);
 
 
 
