@@ -17,6 +17,7 @@ const getuserid = require("./getUserId")
 const getuser = require("./getUserName")
 const updateUser = require("./updateUser");
 const deleteUser = require("./deleteUser")
+const updateUserAdmin = require("./updateUserAdmin")
 const login = require("./login")
 const loginUser = require('./auth')
 const payment = require("./payment")
@@ -102,6 +103,7 @@ router.use("/user", createUser);
 router.use("/user", getuserid);
 router.use("/user", getuser);
 router.use("/user", deleteUser);
+router.use("/user/admin", updateUserAdmin);
 router.use("/user/login", loginUser);
 router.use("/login", login);
 router.use("/user/update", updateUser);

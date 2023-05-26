@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
       
       userAdmin: {
         type: DataTypes.BOOLEAN,
-        default: true,
+        default: false,
       },
 
       email: {
@@ -58,6 +58,9 @@ module.exports = (sequelize) => {
       newsLetter: {
         type: DataTypes.BOOLEAN,
       },
-      
+      deleted: {
+        type: DataTypes.BOOLEAN,     
+        defaultValue: false,
+      }
     });
   };
