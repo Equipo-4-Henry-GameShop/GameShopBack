@@ -12,7 +12,7 @@ const putGameRouter = require("./putGame");
 const sortedGames = require("./sortedGames")
 const filteredPlatforms = require("./filteredPlatforms")
 const createUser = require("./createUser")
-const addToCart = require("./createCart")
+const createCart = require("./createCart")
 const getuserid = require("./getUserId")
 const getuser = require("./getUserName")
 const updateUser = require("./updateUser");
@@ -110,7 +110,7 @@ router.use("/user/update", updateUser);
 router.use("/", payment);
 router.use("/sales", getSales);
 router.use("/sales", getSalesId);
-router.use("/cart", addToCart);
+router.use("/cart", createCart);
 
 router.use(registroRouter);
 router.use(carritoRouter);

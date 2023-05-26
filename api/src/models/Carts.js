@@ -7,19 +7,12 @@ module.exports = (sequelize) => {
     primaryKey: true,
     autoIncrement: true,
   },
-
-  videogameId: {
-    type: DataTypes.INTEGER,
-    // allowNull: false,
-  },
-  quantity: {
-    type: DataTypes.INTEGER,
-  },
-  price: {
+  amount: {
     type: DataTypes.FLOAT
   },
-  total: {
-    type: DataTypes.FLOAT
+  items:{
+    type: DataTypes.ARRAY(DataTypes.JSON),
+    allowNull: false,
   },
   createdAt: {
     type: DataTypes.DATE,
@@ -31,4 +24,5 @@ module.exports = (sequelize) => {
   },
 },
 )}
+
 

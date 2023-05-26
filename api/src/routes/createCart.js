@@ -7,22 +7,19 @@ const router = Router();
 router.use(express.json());
   
 router.post("/", async (req, res) => {
-    const { userId, videogameId, quantity, price } = req.body;
-    
+  const {userId, amount, items} = req.body;
+
     try {
-      let resultado = await addToCart({
-        userId,
-        videogameId,
-        quantity,
-        price,
-    })
-    res.status(200).json({ message: "Videogame agregado al carrito" });
-  } catch (error) {
-    res.status(404).json({ error: error.message });
-  }
+        const response = await addToCart({userId, amount, items});
+        res.status(200).json({ message: "Carrito almacenado exitosamente", response })
+
+    } catch (error) {
+        res.status(404).send(error.message);
+    }
 });
 
 module.exports = router;
+
 
 
 

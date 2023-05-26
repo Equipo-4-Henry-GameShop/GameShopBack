@@ -2,59 +2,53 @@ const { Users, Videogame, Carts, CartGame } = require("../db");
 
 async function addToCart({
     userId,
-    videogameId,
-    quantity,
-    price,
+    amount,
+    items,
 })
 
 {
- // Buscamos el usuario en la base de datos
- const user = await Users.findByPk(userId);
- if (!user) throw new Error("Usuario no encontrado");
+    // Verificar si el usuario existe en la base de datos
+    const user = await Users.findByPk(userId);
+    if (!user) {
+        throw new Error("Usuario no encontrado");
+    };
 
-// Buscamos el videogame en la base de datos
-const videogame = await Videogame.findByPk(videogameId);
-if (!videogame) throw new Error("Videogame no encontrado");
+    // Validar los datos de entrada
+    if (!Number.isInteger(amount) || !Array.isArray(items) || items.length === 0) {
+        throw new Error("Datos de entrada inválidos");
+    }
 
+    
+    for (let i = 0; i < items.length; i++) {
+    const { videogameId, quantity } = items[i];
 
-// Verificar si ya existe un carrito para el usuario
-let cart = await Carts.findOne({ where: { UserId: userId } });
-    if (!cart) {
-// Si no existe, crear un nuevo carrito y asignarlo al usuario
-    cart = await Carts.create({
-    videogameId,
-    quantity,
-    price,              
-    UserId: userId,
-});
-}
+    // Verificar si el videojuego existe en la base de datos
+    const videogame = await Videogame.findByPk(videogameId);
+    if (!videogame) {
+        throw new Error(`Videojuego con ID ${videogameId} no encontrado`);
+        }
+    }
 
-// Buscamos si el videogame ya está en el carrito
-const cartVideogame = await CartGame.findOne({
-    where: {
-    cartId: cart.id,
-    videogameId: videogame.id,
-    },
-});
-
-// Si ya está en el carrito, actualizamos la cantidad y el precio total
-if (cartVideogame) {
-const newQuantity = cartVideogame.quantity + quantity;
-const newTotalPrice = newQuantity * price;
-    await cartVideogame.update({
-    quantity: newQuantity,
-    total: newTotalPrice,
-     });
-} else {
-// Si no está en el carrito, lo agregamos con la cantidad y el precio total
-    await Carts.create({
-    cartId: cart.id,
-    videogameId: videogame.id,
-    quantity,
-    price,
-    total: quantity * price,
-    });
-}
+    amount = amount / 100
+    
+    try {
+        let cart = await Carts.create({
+            UserId: userId,
+            amount,
+            items
+        });
+        for (let i = 0; i < items.length; i++) {
+            const videogame = items[i].videogameId;
+            const quantity = items[i].quantity;
+            
+            await cart.addVideogame(videogame)
+            
+        }
+        return cart
+    } catch (error) {
+        console.log(error);
+        return new Error ('Ha ocurrido un error al agregar el carrito');        
+    }
 }
 
 module.exports = { addToCart };
