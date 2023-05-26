@@ -1,5 +1,6 @@
 const { Users } = require ("../db");
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+
 
 async function createUser({
     id,
@@ -19,9 +20,10 @@ async function createUser({
 
     // Genera un hash de la contraseña utilizando bcrypt
     const hashedPassword = await bcrypt.hash(password, 10);
+
 try {
     let resultado = await Users.create({
-        id,
+      id,
       user,
       password: hashedPassword,
       fullname,
